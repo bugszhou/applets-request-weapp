@@ -2,8 +2,8 @@
   "name": "applets-request-weapp",
   "version": "1.0.1",
   "description": "mini program axois request wechat weapp",
-  "main": "dist/mini-request.min.js",
-  "module": "dist/mini-request.es.js",
+  "main": "dist/applets-request-weapp.min.js",
+  "module": "dist/applets-request-weapp.es.js",
   "scripts": {
     "lint": "eslint --ext .ts --ext .tsx src -c .eslintrc.js",
     "fix": "npm run lint --fix",
@@ -21,7 +21,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bugszhou/mini-request.git"
+    "url": "git+https://github.com/bugszhou/applets-request-weapp.git"
   },
   "keywords": [
     "mini",
@@ -34,9 +34,9 @@
   "author": "yiri.zhou",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/bugszhou/mini-request/issues"
+    "url": "https://github.com/bugszhou/applets-request-weapp/issues"
   },
-  "homepage": "https://github.com/bugszhou/mini-request#readme",
+  "homepage": "https://github.com/bugszhou/applets-request-weapp#readme",
   "types": "typings/index.d.ts",
   "devDependencies": {
     "@rollup/plugin-commonjs": "^17.1.0",

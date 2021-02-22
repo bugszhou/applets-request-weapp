@@ -1,4 +1,4 @@
-import { isPlainObject, isString, merge } from "../../helpers/utils";
+import { isPlainObject, isString, merge } from "../helpers/utils";
 
 const STORAGE_COOKIES_KEY = "miniRequest:cookies";
 

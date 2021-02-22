@@ -58,3 +58,35 @@ export function merge(
 
   return result;
 }
+
+export function isString(val: any): boolean {
+  return typeof val === "string";
+}
+
+/**
+ * 遍历
+ * @param {Object|Array} obj
+ * @param fn
+ */
+export function forEach(obj: any, fn: IAppletsRequest.IEmptyFN): void {
+  if (typeof obj === "undefined" || obj === null) {
+    return;
+  }
+
+  let arr = obj;
+
+  // 如果obj是非object类型，例如：number，string等
+  if (typeof obj !== "object") {
+    arr = [obj];
+  }
+
+  if (Array.isArray(arr)) {
+    arr.forEach((item, i) => {
+      fn.call(null, item, i, obj);
+    });
+    return;
+  }
+  Object.keys(arr).forEach((key) => {
+    fn.call(null, arr[key], key, arr);
+  });
+}
