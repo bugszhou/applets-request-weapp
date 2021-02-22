@@ -1,6 +1,6 @@
 {
   "name": "applets-request-weapp",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "mini program axois request wechat weapp",
   "main": "dist/applets-request-weapp.min.js",
   "module": "dist/applets-request-weapp.es.js",
