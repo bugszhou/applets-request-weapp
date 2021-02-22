@@ -1,5 +1,5 @@
 import appletsRequest from 'applets-request';
-export { AppletsRequest, default } from 'applets-request';
+export { AppletsRequest, createAppletsRequestInstance, default } from 'applets-request';
 
 /*! *****************************************************************************
 Copyright (c) Microsoft Corporation.

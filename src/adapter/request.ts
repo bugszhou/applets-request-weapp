@@ -2,7 +2,7 @@
  * @Author: youzhao.zhou
  * @Date: 2021-02-04 16:09:10
  * @Last Modified by: youzhao.zhou
- * @Last Modified time: 2021-02-10 12:10:14
+ * @Last Modified time: 2021-02-22 17:16:17
  * @Description request adapter
  *
  * 1. 执行成功需要返回IAppletsRequestResponse，执行失败即为reject返回IAppletsRequestAdapterError
@@ -105,7 +105,7 @@ export default function request(
 
     const adapter = new Adapter(adapterConfig);
 
-    let request = wx.request({
+    let requestor = wx.request({
       ...reqConfig,
       success(res: any) {
         adapter.resolve(requestSuccess(res), resolve);
@@ -121,14 +121,14 @@ export default function request(
         adapter.reject(rejectData, reject);
       },
       complete() {
-        request = null;
+        requestor = null;
       },
     });
 
     adapter.subscribeCancelEvent((reason) => {
       reject(reason);
-      request.abort();
-      request = null;
+      requestor.abort();
+      requestor = null;
     });
 
     if (typeof config.getRequestTask === "function") {
