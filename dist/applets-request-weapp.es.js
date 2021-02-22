@@ -120,7 +120,7 @@ function getRequestOptions(config) {
  * @Author: youzhao.zhou
  * @Date: 2021-02-04 16:09:10
  * @Last Modified by: youzhao.zhou
- * @Last Modified time: 2021-02-10 12:10:14
+ * @Last Modified time: 2021-02-22 17:16:17
  * @Description request adapter
  *
  * 1. 执行成功需要返回IAppletsRequestResponse，执行失败即为reject返回IAppletsRequestAdapterError
@@ -196,7 +196,7 @@ function request(config) {
             throw new TypeError("Adapter is undefined or null");
         }
         var adapter = new Adapter(adapterConfig);
-        var request = wx.request(__assign(__assign({}, reqConfig), { success: function (res) {
+        var requestor = wx.request(__assign(__assign({}, reqConfig), { success: function (res) {
                 adapter.resolve(requestSuccess(res), resolve);
             },
             fail: function (err) {
@@ -209,12 +209,12 @@ function request(config) {
                 adapter.reject(rejectData, reject);
             },
             complete: function () {
-                request = null;
+                requestor = null;
             } }));
         adapter.subscribeCancelEvent(function (reason) {
             reject(reason);
-            request.abort();
-            request = null;
+            requestor.abort();
+            requestor = null;
         });
         if (typeof config.getRequestTask === "function") {
             config.getRequestTask(request);

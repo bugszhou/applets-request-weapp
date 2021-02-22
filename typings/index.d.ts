@@ -11,4 +11,4 @@ export function createAppletsRequestInstance(
   config?: IAppletsRequestConfig
 ): AppletsRequestInstance;
 
-export const defaults: IAppletsRequestConfig;
+export function getDefaults(): IAppletsRequestConfig;
