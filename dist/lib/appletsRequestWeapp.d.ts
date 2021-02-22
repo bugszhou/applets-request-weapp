@@ -1,0 +1,3 @@
+interface IDemo {
+    demo: number;
+}
