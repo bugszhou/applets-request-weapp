@@ -191,7 +191,7 @@ function request(config) {
     return new Promise(function (resolve, reject) {
         var Adapter = config.Adapter;
         var reqConfig = getRequestOptions(config);
-        var adapterConfig = getReqConfig(reqConfig);
+        var adapterConfig = getReqConfig(config);
         if (!Adapter) {
             throw new TypeError("Adapter is undefined or null");
         }
