@@ -1,4 +1,4 @@
-import appletsRequest from 'applets-request';
+import appletsRequest, { getDefaults as getDefaults$1 } from 'applets-request';
 export { AppletsRequest, createAppletsRequestInstance, default } from 'applets-request';
 
 /*! *****************************************************************************
@@ -223,7 +223,11 @@ function request(config) {
 }
 
 appletsRequest.defaults.adapter = request;
-var defaults = appletsRequest.defaults;
+function getDefaults() {
+    var defaults = getDefaults$1();
+    defaults.adapter = request;
+    return defaults;
+}
 
-export { defaults };
+export { getDefaults };
 //# sourceMappingURL=applets-request-weapp.es.js.map

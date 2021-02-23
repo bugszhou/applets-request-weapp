@@ -85,7 +85,7 @@ export default function request(
   }
 
   function getReqConfig(
-    originalConfig: IAppletsRequestWx.RequestOption
+    originalConfig: IAppletsRequest.IHttpConfig
   ): IAppletsRequest.IHttpConfig {
     const tmpConfig: any = merge({}, originalConfig);
     tmpConfig.headers = originalConfig.header;
@@ -97,7 +97,7 @@ export default function request(
   return new Promise((resolve, reject) => {
     const Adapter = config.Adapter;
     const reqConfig = getRequestOptions(config);
-    const adapterConfig = getReqConfig(reqConfig);
+    const adapterConfig = getReqConfig(config);
 
     if (!Adapter) {
       throw new TypeError("Adapter is undefined or null");
